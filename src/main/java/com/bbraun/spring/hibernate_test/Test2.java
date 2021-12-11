@@ -11,15 +11,15 @@ public class Test2 {
                 .buildSessionFactory();
 try {
         Session session = factory.getCurrentSession();
-        Employee emp = new Employee("Elena", "Petrova", "Sales", 800);
+        Employee emp = new Employee("Oleg", "Sidorov", "HR", 700);
         session.beginTransaction();
         session.save(emp);
-        session.getTransaction().commit(); //Здесь сессия(транзакция) закрывается! далее надо создавать заново!
+       // session.getTransaction().commit(); //Здесь сессия(транзакция) закрывается! далее надо создавать заново!
 
     //получение работника по id
         int myId = emp.getId();
-         session = factory.getCurrentSession(); //Заускаем новую сессию!
-        session.beginTransaction();
+      //   session = factory.getCurrentSession(); //Заускаем новую сессию!
+      //  session.beginTransaction();
         Employee employee = session.get(Employee.class, myId);
         session.getTransaction().commit();
     System.out.println(employee);
