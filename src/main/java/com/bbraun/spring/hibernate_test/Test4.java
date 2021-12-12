@@ -14,11 +14,12 @@ public class Test4 {
         try {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
-            Employee emp = session.get(Employee.class, 2);
-            emp.setNamme("Vasiliy");
-            emp.setSurname("Terkin");
-            emp.setSalary(1000);
+//            Employee emp = session.get(Employee.class, 2);
+//            emp.setNamme("Vasiliy");
+//            emp.setSurname("Terkin");
+//            emp.setSalary(1000);
 
+            session.createQuery("update Employee set salary = 1000 where name = 'Alexandr' ").executeUpdate();
 
 
 
